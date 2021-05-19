@@ -39,6 +39,9 @@ public class App
             e.printStackTrace();
         }
 
+        ErrorRecord  er=new ErrorRecord();
+        er.Test();
+
 
     }
 }
