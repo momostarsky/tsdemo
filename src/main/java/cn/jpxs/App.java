@@ -10,38 +10,37 @@ import java.io.File;
 import java.io.IOException;
 
 
-
 /**
  * Hello world!
- *
  */
-public class App 
-{
-
-    static  {
+public class App {
+    static {
         String lib = System.getProperty("java.library.path");
         lib = "./target/classes;" + lib;
         System.setProperty("java.library.path", lib);
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
+   public  static void DemoLog(){
+       ImageReader imageReader = ImageIO.getImageReadersByFormatName("DICOM").next();
+       File file = new File("/home/dhz/dcmdata/1.dcm");
+       try (DicomInputStream dis = new DicomInputStream(file)) {
+           imageReader.setInput(dis);
+           DicomImageReadParam param = (DicomImageReadParam) imageReader.getDefaultReadParam();
+           BufferedImage imgx = imageReader.read(0, param);
+           System.out.println(imgx != null);
+           System.out.println(imgx.getWidth() + "X" + imgx.getHeight());
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
 
-    public static void main( String[] args )
-    {
-        System.out.println("Currrent Working Directory:"+ System.getProperty("user.dir") );
-        ImageReader imageReader =  ImageIO.getImageReadersByFormatName("DICOM").next();
-        File file =new File("/home/dhz/dcmdata/1.dcm");
-        try (DicomInputStream dis = new DicomInputStream(file)) {
-            imageReader.setInput(dis);
-            DicomImageReadParam param = (DicomImageReadParam) imageReader.getDefaultReadParam();
-             BufferedImage imgx = imageReader.read( 0, param);
-             System.out.println( imgx != null);
-            System.out.println( imgx.getWidth() +"X"+ imgx.getHeight());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+       ErrorRecord er = new ErrorRecord();
+       er.Test();
+   }
 
-        ErrorRecord  er=new ErrorRecord();
-        er.Test();
+    public static void main(String[] args) {
+
+        DemoLog();
+
 
 
     }
