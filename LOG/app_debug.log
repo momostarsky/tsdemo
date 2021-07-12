@@ -1,0 +1,6 @@
+[main] DEBUG org.dcm4che3.imageio.plugins.dcm.DicomImageReader - Decompressor: org.dcm4che3.opencv.NativeImageReader
+[main] DEBUG org.dcm4che3.imageio.plugins.dcm.DicomImageReader - Start decompressing frame #1
+[main] DEBUG org.dcm4che3.imageio.plugins.dcm.DicomImageReader - Finished decompressing frame #1
+[main] DEBUG org.dcm4che3.imageio.plugins.dcm.DicomImageReader - Decompressor: org.dcm4che3.opencv.NativeImageReader
+[main] DEBUG org.dcm4che3.imageio.plugins.dcm.DicomImageReader - Start decompressing frame #1
+[main] DEBUG org.dcm4che3.imageio.plugins.dcm.DicomImageReader - Finished decompressing frame #1
